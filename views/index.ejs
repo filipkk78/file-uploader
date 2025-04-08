@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
     <title>File Uploader</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <%- include('header') %>
-        <main>
-            <h1>Welcome to Moogle Drive</h1>
-            <% if (locals.user) {%>
-                <p>Welcome back <%= `${user.name}` %></p>
-            <% } else {%>
-                    <p>You must log in or create an account to proceed</p>
-            <% }%>
-        </main>
-        <%- include('footer') %>
+      <%- include('header') %>
+      <main>
+        <h1>Welcome to Moogle Drive</h1>
+        <% if (locals.user) {%>
+        <p>Welcome back <%= `${user.name}` %></p>
+        <% } else {%>
+        <p>You must log in or create an account to proceed</p>
+        <% }%>
+      </main>
+      <%- include('footer') %>
     </div>
-</body>
+  </body>
 </html>

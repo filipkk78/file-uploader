@@ -144,6 +144,10 @@ a:hover {
   padding: 0.5rem;
 }
 
+input[type="file"] {
+  all: unset;
+}
+
 @media (max-width: 1100px) {
   .index-main {
     padding: 2em 15%;

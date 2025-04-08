@@ -3,7 +3,11 @@ const indexRouter = Router();
 const passport = require("../passportConfig");
 const { signUp } = require("../controllers/usersController");
 
-indexRouter.get("/", (req, res) => res.render("index", {user: req.user}))
+indexRouter.get("/", (req, res) => res.render("index", { user: req.user }));
+
+indexRouter.get("/upload", (req, res) =>
+  res.render("file-form", { user: req.user })
+);
 
 indexRouter.get("/log-in", (req, res) => {
   const messages = req.session.messages;
@@ -32,6 +36,5 @@ indexRouter.get("/log-out", (req, res, next) => {
     res.redirect("/");
   });
 });
-
 
 module.exports = indexRouter;

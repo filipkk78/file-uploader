@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('header') %>
+      <main class="user-form-main">
+        <% if (!locals.user) {%>
+        <h1>You must be logged in to upload files</h1>
+        <% } else { %>
+        <form action="/upload" method="POST" class="user-form">
+          <label for="file"> Upload your file<span class="req">*</span></label>
+          <input id="newFile" name="newFile" type="file" required />
+          <button type="submit">Submit</button>
+        </form>
+        <%}%>
+      </main>
+      <%- include('footer') %>
+    </div>
+  </body>
+</html>
