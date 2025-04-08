@@ -13,7 +13,12 @@
         <% if (!locals.user) {%>
         <h1>You must be logged in to upload files</h1>
         <% } else { %>
-        <form action="/upload" method="POST" class="user-form">
+        <form
+          action="/upload"
+          method="POST"
+          class="user-form"
+          enctype="multipart/form-data"
+        >
           <label for="file"> Upload your file<span class="req">*</span></label>
           <input id="newFile" name="newFile" type="file" required />
           <button type="submit">Submit</button>

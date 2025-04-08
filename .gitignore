@@ -137,3 +137,6 @@ dist
 
 #prisma
 generated/prisma/
+
+#upload testing
+uploads

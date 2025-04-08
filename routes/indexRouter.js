@@ -2,12 +2,27 @@ const { Router } = require("express");
 const indexRouter = Router();
 const passport = require("../passportConfig");
 const { signUp } = require("../controllers/usersController");
+const multer = require("multer");
+const { uploadController } = require("../controllers/uploadController");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 indexRouter.get("/", (req, res) => res.render("index", { user: req.user }));
 
 indexRouter.get("/upload", (req, res) =>
   res.render("file-form", { user: req.user })
 );
+
+indexRouter.post("/upload", upload.single("newFile"), uploadController);
 
 indexRouter.get("/log-in", (req, res) => {
   const messages = req.session.messages;
