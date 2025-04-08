@@ -148,6 +148,18 @@ input[type="file"] {
   all: unset;
 }
 
+.header-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150%;
+}
+
+.header-logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 @media (max-width: 1100px) {
   .index-main {
     padding: 2em 15%;
