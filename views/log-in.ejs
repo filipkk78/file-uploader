@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="wrapper">
+      <%- include('header') %>
       <main class="user-form-main">
         <% if (locals.user) {%>
         <h1>Welcome back <%= `${user.name}` %></h1>
@@ -29,6 +30,7 @@
         </ul>
         <% }} %>
       </main>
+      <%- include('footer') %>
     </div>
   </body>
 </html>

@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="wrapper">
+      <%- include('header') %>
       <main class="user-form-main">
         <h1>Sign Up</h1>
         <form action="/sign-up" method="POST" class="user-form">
@@ -30,6 +31,7 @@
         </form>
         <%- include("partials/errors.ejs") %>
       </main>
+      <%- include('footer') %>
     </div>
   </body>
 </html>

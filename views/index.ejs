@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" />
     <title>File Uploader</title>
 </head>
 <body>
-    <h1>file uploader</h1>
-    <% if (locals.user) {%>
-        <h1>Welcome back <%= `${user.name}` %></h1>
-        <a href="/log-out">Log out</a>
-        <% } else {%>
-    <a href="log-in">log in</a>
-    <a href="sign-up">sign up</a>
-    <% }%>
+    <div class="wrapper">
+        <%- include('header') %>
+        <main>
+            <h1>Welcome to Moogle Drive</h1>
+            <% if (locals.user) {%>
+                <p>Welcome back <%= `${user.name}` %></p>
+            <% } else {%>
+                    <p>You must log in or create an account to proceed</p>
+            <% }%>
+        </main>
+        <%- include('footer') %>
+    </div>
 </body>
 </html>

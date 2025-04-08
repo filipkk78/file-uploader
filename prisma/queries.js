@@ -1,23 +1,23 @@
-const { PrismaClient } = require('@prisma/client')
+const { PrismaClient } = require("@prisma/client");
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function getUserById(userId) {
   const user = await prisma.user.findUnique({
     where: {
-      id: userId
-    }
-  })
-  return user
+      id: userId,
+    },
+  });
+  return user;
 }
 
 async function getUserByEmail(userEmail) {
   const user = await prisma.user.findUnique({
     where: {
-      email: userEmail
-    }
-  })
-  return user
+      email: userEmail,
+    },
+  });
+  return user;
 }
 
 async function signUp(userName, userEmail, userPwd) {
@@ -25,13 +25,13 @@ async function signUp(userName, userEmail, userPwd) {
     data: {
       email: userEmail,
       name: userName,
-      password: userPwd
-    }
-  })
+      password: userPwd,
+    },
+  });
 }
 
 module.exports = {
   getUserById,
   getUserByEmail,
-  signUp
-}
+  signUp,
+};

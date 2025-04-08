@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --accents: #4a2040;
+}
+
+body {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  font-family: "Nunito";
+  margin: 0;
+  font-size: 1rem;
+}
+
+main {
+  padding: 2em;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: var(--accents);
+  font-size: 1.2em;
+}
+
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  font-size: 1rem;
+}
+
+header {
+  display: flex;
+  padding: 1em;
+  background-color: var(--accents);
+  height: 4rem;
+}
+
+header nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.user-form-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.user-form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 40ch;
+  gap: 0.5em;
+  grid-template-columns: 1fr;
+}
+
+.req {
+  color: red;
+}
+
+.user-form label {
+  padding: 0.2em;
+}
+
+.user-form input {
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  background-color: transparent;
+  height: 2rem;
+  padding: 0.5em;
+  color: white;
+}
+
+.user-form button {
+  background-color: white;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+@media (max-width: 1100px) {
+  .index-main {
+    padding: 2em 15%;
+  }
+}
+
+@media (max-width: 800px) {
+  .index-main {
+    padding: 2em 2em;
+  }
+}
