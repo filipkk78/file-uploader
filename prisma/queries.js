@@ -44,9 +44,30 @@ async function addFolder(folderName, userId) {
   });
 }
 
+async function deleteFolder(folderId) {
+  const deleteFolder = await prisma.folder.delete({
+    where: {
+      id: folderId,
+    },
+  });
+}
+
+async function updateFolder(folderId, newName) {
+  const updateFolder = await prisma.folder.update({
+    where: {
+      id: folderId,
+    },
+    data: {
+      name: newName,
+    },
+  });
+}
+
 module.exports = {
   getUserById,
   getUserByEmail,
   signUp,
   addFolder,
+  deleteFolder,
+  updateFolder,
 };
