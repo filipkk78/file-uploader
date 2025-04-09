@@ -54,6 +54,11 @@ async function addFolder(folderName, userId) {
 }
 
 async function deleteFolder(folderId) {
+  const deleteFiles = await prisma.file.deleteMany({
+    where: {
+      folderId: folderId,
+    },
+  });
   const deleteFolder = await prisma.folder.delete({
     where: {
       id: folderId,

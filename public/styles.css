@@ -160,9 +160,16 @@ input[type="file"] {
   max-height: 100%;
 }
 
-.folder {
+.folder-info {
   display: flex;
   /* justify-content: center; */
+  align-items: center;
+  gap: 1em;
+}
+
+.folder-info form {
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1em;
 }

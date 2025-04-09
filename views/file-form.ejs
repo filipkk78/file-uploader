@@ -12,7 +12,9 @@
       <main class="user-form-main">
         <% if (!locals.user) {%>
         <h1>You must be logged in to upload files</h1>
-        <% } else { %>
+        <% } else { %> <% if(locals.user.folders.length === 0) {%>
+        <h1>You must create a folder first to upload files</h1>
+        <% } else {%>
         <form
           action="/upload"
           method="POST"
@@ -31,7 +33,7 @@
         </form>
         <%} if(locals.err) {%>
         <p><%=err.message%></p>
-        <% }%>
+        <% }}%>
       </main>
       <%- include('footer') %>
     </div>
