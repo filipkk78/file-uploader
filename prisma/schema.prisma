@@ -35,6 +35,7 @@ model File {
   id        Int      @id @default(autoincrement())
   name      String
   link      String
+  size      String
   createdAt DateTime @default(now())
   folder    Folder   @relation(fields: [folderId], references: [id])
   folderId  Int      @unique

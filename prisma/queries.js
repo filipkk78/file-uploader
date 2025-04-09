@@ -72,18 +72,35 @@ async function updateFolder(folderId, newName) {
   });
 }
 
-async function addFile(folderId, fileName, fileLink) {
+function bytesToSize(bytes) {
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+  if (bytes === 0) return "n/a";
+  const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+  if (i === 0) return `${bytes} ${sizes[i]})`;
+  return `${(bytes / 1024 ** i).toFixed(1)} ${sizes[i]}`;
+}
+
+async function addFile(folderId, fileName, fileLink, fileSize) {
   const addFile = await prisma.folder.update({
     where: {
       id: folderId,
     },
     data: {
       folderFiles: {
-        create: { name: fileName, link: fileLink },
+        create: { name: fileName, link: fileLink, size: bytesToSize(fileSize) },
       },
     },
   });
 }
+
+// async function deleteEverything() {
+//   const deleteFiles = prisma.file.deleteMany();
+//   const deleteFolders = prisma.folder.deleteMany();
+//   const deleteUsers = prisma.user.deleteMany();
+//   await prisma.$transaction([deleteFiles, deleteFolders, deleteUsers]);
+// }
+
+// deleteEverything();
 
 module.exports = {
   getUserById,

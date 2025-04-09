@@ -8,11 +8,11 @@ function uploadController(req, res) {
       res.render("file-form", { err: err, user: req.user });
       return;
     }
-    console.log(result);
     db.addFile(
       parseInt(req.body.folderId),
       result.original_filename,
-      result.secure_url
+      result.secure_url,
+      result.bytes
     );
     res.redirect("/");
   });
