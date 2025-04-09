@@ -2,24 +2,13 @@ const { Router } = require("express");
 const indexRouter = Router();
 const passport = require("../passportConfig");
 const { signUp } = require("../controllers/usersController");
-const multer = require("multer");
 const { uploadController } = require("../controllers/uploadController");
 const {
   addNewFolder,
   deleteFolder,
   updateFolder,
 } = require("../controllers/folderController");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
+const upload = require("../middleware/multer");
 
 indexRouter.get("/", (req, res) => res.render("index", { user: req.user }));
 

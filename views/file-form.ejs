@@ -23,7 +23,9 @@
           <input id="newFile" name="newFile" type="file" required />
           <button type="submit">Submit</button>
         </form>
-        <%}%>
+        <%} if(locals.err) {%>
+        <p><%=err.message%></p>
+        <% }%>
       </main>
       <%- include('footer') %>
     </div>
