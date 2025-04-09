@@ -8,6 +8,7 @@ const {
   deleteFolder,
   updateFolder,
 } = require("../controllers/folderController");
+const { detailsController } = require("../controllers/detailsController");
 const upload = require("../middleware/multer");
 
 indexRouter.get("/", (req, res) => res.render("index", { user: req.user }));
@@ -46,11 +47,7 @@ indexRouter.get("/log-out", (req, res, next) => {
   });
 });
 
-indexRouter.get("/details", (req, res) =>
-  res.render("file-details", {
-    file: { name: "moogle", size: 100, createdAt: "2025-04-08" },
-  })
-);
+indexRouter.get("/details/:fileId", detailsController);
 
 indexRouter.post("/newfolder", addNewFolder);
 indexRouter.post("/deletefolder", deleteFolder);

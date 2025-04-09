@@ -61,6 +61,12 @@
                 </svg>
               </button>
             </form>
+            <ul>
+              <% if(folder.folderFiles) {%> <%
+              folder.folderFiles.forEach(function(file) { %>
+              <li><a href="<%=`/details/${file.id}`%>"><%= file.name%></a></li>
+              <% })} %>
+            </ul>
           </li>
           <% }); %>
           <li class="folder">
@@ -72,7 +78,6 @@
           </li>
         </ul>
         <% } }%>
-        <a href="/details">File details</a>
       </main>
       <%- include('footer') %>
     </div>

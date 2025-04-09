@@ -93,6 +93,22 @@ async function addFile(folderId, fileName, fileLink, fileSize) {
   });
 }
 
+async function getFileById(fileId) {
+  const getFile = await prisma.file.findUnique({
+    where: {
+      id: fileId,
+    },
+  });
+  const getOwner = await prisma.folder.findUnique({
+    where: {
+      id: getFile.folderId,
+    },
+  });
+  const userId = getOwner.userId;
+  const result = { ...getFile, userId };
+  return result;
+}
+
 // async function deleteEverything() {
 //   const deleteFiles = prisma.file.deleteMany();
 //   const deleteFolders = prisma.folder.deleteMany();
@@ -110,4 +126,5 @@ module.exports = {
   deleteFolder,
   updateFolder,
   addFile,
+  getFileById,
 };

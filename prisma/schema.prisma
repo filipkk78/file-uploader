@@ -38,7 +38,7 @@ model File {
   size      String
   createdAt DateTime @default(now())
   folder    Folder   @relation(fields: [folderId], references: [id])
-  folderId  Int      @unique
+  folderId  Int
 }
 
 model Session {

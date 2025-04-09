@@ -38,7 +38,7 @@ app.use("/", indexRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Members only running on port ${PORT}`);
+  console.log(`File uploader running on port ${PORT}`);
 });
 
 app.use((err, req, res, next) => {
