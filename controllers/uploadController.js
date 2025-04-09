@@ -1,5 +1,6 @@
 const cloudinary = require("../cloudinaryConfig");
 const upload = require("../middleware/multer");
+const db = require("../prisma/queries");
 
 function uploadController(req, res) {
   cloudinary.uploader.upload(req.file.path, function (err, result) {
@@ -8,6 +9,11 @@ function uploadController(req, res) {
       return;
     }
     console.log(result);
+    db.addFile(
+      parseInt(req.body.folderId),
+      result.original_filename,
+      result.secure_url
+    );
     res.redirect("/");
   });
 }

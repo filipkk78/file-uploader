@@ -19,6 +19,12 @@
           class="user-form"
           enctype="multipart/form-data"
         >
+          <label for="folderId">Folder</label>
+          <select name="folderId" id="folderId">
+            <% locals.user.folders.forEach(function(folder) { %>
+            <option value="<%=folder.id%>"><%= folder.name %></option>
+            <% }); %>
+          </select>
           <label for="file"> Upload your file <span class="req">*</span></label>
           <input id="newFile" name="newFile" type="file" required />
           <button type="submit">Submit</button>

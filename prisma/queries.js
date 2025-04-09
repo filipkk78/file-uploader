@@ -7,7 +7,13 @@ async function getUserById(userId) {
     where: {
       id: userId,
     },
-    include: { folders: true },
+    include: {
+      folders: {
+        include: {
+          folderFiles: true,
+        },
+      },
+    },
   });
   return user;
 }
@@ -27,6 +33,9 @@ async function signUp(userName, userEmail, userPwd) {
       email: userEmail,
       name: userName,
       password: userPwd,
+      folders: {
+        create: { name: "Default" },
+      },
     },
   });
 }
@@ -63,6 +72,19 @@ async function updateFolder(folderId, newName) {
   });
 }
 
+async function addFile(folderId, fileName, fileLink) {
+  const addFile = await prisma.folder.update({
+    where: {
+      id: folderId,
+    },
+    data: {
+      folderFiles: {
+        create: { name: fileName, link: fileLink },
+      },
+    },
+  });
+}
+
 module.exports = {
   getUserById,
   getUserByEmail,
@@ -70,4 +92,5 @@ module.exports = {
   addFolder,
   deleteFolder,
   updateFolder,
+  addFile,
 };

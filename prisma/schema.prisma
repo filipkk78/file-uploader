@@ -23,22 +23,22 @@ model User {
 }
 
 model Folder {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  // folderFiles File[]
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
+  id          Int      @id @default(autoincrement())
+  name        String
+  createdAt   DateTime @default(now())
+  folderFiles File[]
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
 }
 
-// model File {
-//   id        Int      @id @default(autoincrement())
-//   name      String
-//   link      String
-//   createdAt DateTime @default(now())
-//   folder    Folder   @relation(fields: [folderId], references: [id])
-//   folderId  Int      @unique
-// }
+model File {
+  id        Int      @id @default(autoincrement())
+  name      String
+  link      String
+  createdAt DateTime @default(now())
+  folder    Folder   @relation(fields: [folderId], references: [id])
+  folderId  Int      @unique
+}
 
 model Session {
   id        String   @id
