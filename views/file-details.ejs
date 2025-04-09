@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>File details</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('header') %>
+      <main>
+        <h1>File details</h1>
+        <p>Name: <%= file.name%></p>
+        <p>Size: <%= file.size%></p>
+        <p>Uploaded at:<%= file.createdAt%></p>
+        <a href="/uploads/moogle64.png" download="moogle64.png"
+          >Download File</a
+        >
+      </main>
+      <%- include('footer') %>
+    </div>
+  </body>
+</html>

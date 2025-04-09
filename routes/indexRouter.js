@@ -57,6 +57,12 @@ indexRouter.get("/log-out", (req, res, next) => {
   });
 });
 
+indexRouter.get("/details", (req, res) =>
+  res.render("file-details", {
+    file: { name: "moogle", size: 100, createdAt: "2025-04-08" },
+  })
+);
+
 indexRouter.post("/newfolder", addNewFolder);
 indexRouter.post("/deletefolder", deleteFolder);
 indexRouter.post("/updatefolder", updateFolder);
