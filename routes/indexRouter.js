@@ -4,6 +4,7 @@ const passport = require("../passportConfig");
 const { signUp } = require("../controllers/usersController");
 const multer = require("multer");
 const { uploadController } = require("../controllers/uploadController");
+const { addNewFolder } = require("../controllers/folderController");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -51,5 +52,7 @@ indexRouter.get("/log-out", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+indexRouter.post("/newfolder", addNewFolder);
 
 module.exports = indexRouter;

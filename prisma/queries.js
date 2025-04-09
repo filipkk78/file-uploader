@@ -7,6 +7,7 @@ async function getUserById(userId) {
     where: {
       id: userId,
     },
+    include: { folders: true },
   });
   return user;
 }
@@ -30,8 +31,22 @@ async function signUp(userName, userEmail, userPwd) {
   });
 }
 
+async function addFolder(folderName, userId) {
+  const addFolder = await prisma.user.update({
+    where: {
+      id: userId,
+    },
+    data: {
+      folders: {
+        create: { name: folderName },
+      },
+    },
+  });
+}
+
 module.exports = {
   getUserById,
   getUserByEmail,
   signUp,
+  addFolder,
 };

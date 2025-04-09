@@ -160,6 +160,18 @@ input[type="file"] {
   max-height: 100%;
 }
 
+.folder {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 1em;
+}
+
+.folder svg {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
 @media (max-width: 1100px) {
   .index-main {
     padding: 2em 15%;
